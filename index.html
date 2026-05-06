@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ロサンゼルス・サンフランシスコ 旅のしおり 2026.5.16-22</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+    background: linear-gradient(135deg, #fff5e6 0%, #ffe4d1 100%);
+    color: #2c2c2c;
+    line-height: 1.8;
+    padding: 20px;
+  }
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+  .cover {
+    background: linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%);
+    color: #fff;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+  }
+  .cover h1 {
+    font-size: 2.4em;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    letter-spacing: 2px;
+  }
+  .cover .subtitle {
+    font-size: 1.2em;
+    margin-bottom: 24px;
+    opacity: 0.95;
+  }
+  .cover .dates {
+    display: inline-block;
+    background: rgba(255,255,255,0.25);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .section {
+    padding: 40px 36px;
+    border-bottom: 1px solid #f0e6d6;
+  }
+  .section:last-child { border-bottom: none; }
+  h2 {
+    font-size: 1.6em;
+    color: #d63031;
+    border-left: 6px solid #feca57;
+    padding-left: 16px;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 1.25em;
+    color: #e17055;
+    margin: 20px 0 12px;
+    font-weight: 600;
+  }
+  .info-card {
+    background: #fef9f3;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    border-left: 4px solid #feca57;
+  }
+  .info-card.warning { border-left-color: #d63031; background: #ffeaea; }
+  .info-card.tip { border-left-color: #00b894; background: #e8faf2; }
+  .info-card.note { border-left-color: #0984e3; background: #e8f4ff; }
+  .day-card {
+    background: #fff;
+    border: 2px solid #ffe4d1;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 20px 0;
+    transition: transform 0.2s;
+  }
+  .day-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,107,107,0.15);
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed #ffe4d1;
+  }
+  .day-number {
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: #fff;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1em;
+    flex-shrink: 0;
+  }
+  .day-title {
+    flex: 1;
+  }
+  .day-title .date {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #2d3436;
+  }
+  .day-title .location {
+    font-size: 0.95em;
+    color: #e17055;
+    font-weight: 600;
+  }
+  .schedule-row {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid #f5f0e8;
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .time {
+    width: 80px;
+    color: #d63031;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .activity {
+    flex: 1;
+  }
+  .activity strong {
+    color: #2d3436;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .activity .detail {
+    font-size: 0.9em;
+    color: #636e72;
+  }
+  .restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .restaurant-card {
+    background: #fef9f3;
+    border-radius: 12px;
+    padding: 18px 20px;
+    border-top: 4px solid #feca57;
+  }
+  .restaurant-card .name {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #d63031;
+    margin-bottom: 6px;
+  }
+  .restaurant-card .genre {
+    font-size: 0.85em;
+    color: #00b894;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .restaurant-card .desc {
+    font-size: 0.92em;
+    color: #2d3436;
+    margin-bottom: 8px;
+  }
+  .restaurant-card .area {
+    font-size: 0.85em;
+    color: #636e72;
+  }
+  .check-list {
+    background: #fef9f3;
+    border-radius: 12px;
+    padding: 20px 28px;
+    margin: 12px 0;
+  }
+  .check-list .category {
+    font-weight: 700;
+    color: #d63031;
+    margin: 14px 0 8px;
+    font-size: 1.05em;
+  }
+  .check-list .category:first-child { margin-top: 0; }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    color: #2d3436;
+  }
+  .check-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #ff6b6b;
+    cursor: pointer;
+  }
+  .flight-card {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #fff;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 16px 0;
+  }
+  .flight-card .route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 0;
+  }
+  .flight-card .airport {
+    text-align: center;
+  }
+  .flight-card .airport .code {
+    font-size: 1.8em;
+    font-weight: 700;
+  }
+  .flight-card .airport .city {
+    font-size: 0.9em;
+    opacity: 0.9;
+  }
+  .flight-card .airport .time {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #ffeaa7;
+    margin-top: 6px;
+  }
+  .arrow {
+    font-size: 1.6em;
+    opacity: 0.7;
+  }
+  .flight-detail {
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 0.95em;
+  }
+  .emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .emergency-card {
+    background: #fff;
+    border: 2px solid #ffeaea;
+    border-radius: 12px;
+    padding: 16px 20px;
+  }
+  .emergency-card .label {
+    font-weight: 700;
+    color: #d63031;
+    margin-bottom: 6px;
+  }
+  .emergency-card .value {
+    font-size: 1.1em;
+    color: #2d3436;
+    font-weight: 600;
+  }
+  .emergency-card .note {
+    font-size: 0.85em;
+    color: #636e72;
+    margin-top: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0;
+  }
+  table th, table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid #f0e6d6;
+  }
+  table th {
+    background: #feca57;
+    color: #fff;
+    font-weight: 600;
+  }
+  table tr:nth-child(even) {
+    background: #fef9f3;
+  }
+  .footer {
+    background: linear-gradient(135deg, #ff6b6b, #feca57);
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    font-size: 0.95em;
+  }
+  .footer .heart { font-size: 1.4em; }
+  .copy-btn {
+    background: #ff6b6b;
+    color: #fff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-left: 8px;
+    transition: background 0.2s;
+  }
+  .copy-btn:hover { background: #d63031; }
+  .copy-btn.copied { background: #00b894; }
+  @media (max-width: 600px) {
+    .section { padding: 28px 20px; }
+    .cover h1 { font-size: 1.8em; }
+    .schedule-row { flex-direction: column; }
+    .time { width: auto; margin-bottom: 4px; }
+    .flight-card .route { flex-direction: column; gap: 12px; }
+    .arrow { transform: rotate(90deg); }
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .container { box-shadow: none; }
+    .day-card:hover { transform: none; box-shadow: none; }
+    .tabs { display: none; }
+    .tab-content { display: block !important; }
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    border-bottom: 3px solid #ffe4d1;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .tab-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 16px 12px;
+    background: #fff;
+    border: none;
+    border-bottom: 4px solid transparent;
+    font-family: inherit;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #636e72;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab-btn:hover {
+    background: #fef9f3;
+    color: #d63031;
+  }
+  .tab-btn.active {
+    color: #d63031;
+    border-bottom-color: #ff6b6b;
+    background: linear-gradient(180deg, #fff 0%, #fff5e6 100%);
+  }
+  .tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-out;
+  }
+  .tab-content.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (max-width: 600px) {
+    .tab-btn {
+      min-width: 33.33%;
+      flex: 0 0 33.33%;
+      padding: 12px 6px;
+      font-size: 0.85em;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="cover">
+    <h1>ロサンゼルス × サンフランシスコ</h1>
+    <div class="subtitle">2人旅 アメリカ西海岸 7日間</div>
+    <div class="dates">2026年 5月16日（土）〜 5月22日（金）</div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event, 'tab-overview')">概要</button>
+    <button class="tab-btn" onclick="switchTab(event, 'tab-itinerary')">日程表</button>
+    <button class="tab-btn" onclick="switchTab(event, 'tab-restaurants')">レストラン</button>
+    <button class="tab-btn" onclick="switchTab(event, 'tab-packing')">持ち物</button>
+    <button class="tab-btn" onclick="switchTab(event, 'tab-emergency')">緊急時</button>
+    <button class="tab-btn" onclick="switchTab(event, 'tab-checklist')">準備チェック</button>
+  </div>
+
+  <div id="tab-overview" class="tab-content active">
+
+  <div class="section">
+    <h2>旅の概要</h2>
+    <table>
+      <tr><th>期間</th><td>2026年5月16日（土）〜5月22日（金） 7日間</td></tr>
+      <tr><th>人数</th><td>2人</td></tr>
+      <tr><th>前半</th><td>5月16日〜18日　ロサンゼルス（サンタモニカに3泊）</td></tr>
+      <tr><th>後半</th><td>5月19日〜22日　サンフランシスコ（フィッシャーマンズワーフ周辺に3泊）</td></tr>
+      <tr><th>移動</th><td>現地はレンタカー（LAとSFで別契約）／ LA→SF間は飛行機（未予約）</td></tr>
+      <tr><th>主な予定</th><td>会社用事（半日）／ アナハイム（エンゼルス野球観戦・チケット取得済み）／ 古着倉庫めぐり ／ シリコンバレー＋海辺ドライブ ／ ヨセミテ国立公園</td></tr>
+    </table>
+
+    <h3 style="margin-top:24px;">宿泊先</h3>
+    <table>
+      <tr><th>LA（5/16〜18 3泊）</th><td>Loews Santa Monica Beach Hotel<br><span style="font-size:0.85em; color:#636e72;">サンタモニカビーチ徒歩すぐの中〜高級ホテル。明るい雰囲気、駐車場あり（推測です：駐車料金は別途、要確認）</span></td></tr>
+      <tr><th>SF（5/19〜22 3泊）</th><td>The Argonaut Hotel<br><span style="font-size:0.85em; color:#636e72;">フィッシャーマンズワーフ近くの海洋テーマ・ブティックホテル。観光地に近く車旅に便利（推測です：駐車場の有無と料金は予約時に確認してください）</span></td></tr>
+    </table>
+
+    <h3 style="margin-top:24px;">レンタカー</h3>
+    <div class="info-card note">
+      会社：さくらレンタカー（候補）<br>
+      LAでの営業状況や店舗位置については正確に把握していません（わかりません）。出発前にさくらレンタカーの公式サイトでLA店舗の有無、料金、車種、保険内容を必ず確認してください。LAとSFそれぞれで別契約します。
+    </div>
+
+    <div class="info-card warning">
+      もしさくらレンタカーがLAで利用できない場合の代替候補は、ニッポンレンタカーUSA、Hertz、Enterprise、Alamoなど。LAX空港の「Rental Car Center」にまとまっているので便利です。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>フライト情報</h2>
+
+    <h3>行きの便（予約済み）</h3>
+    <div class="flight-card">
+      <div style="font-weight:700; font-size:1.1em;">ZIPAIR ZG024便　/　ZIP Full-Flat（プレミアム）</div>
+      <div style="font-size:0.9em; opacity:0.9; margin-top:4px;">2026年5月16日（土）　所要時間 約9時間50分</div>
+      <div class="route">
+        <div class="airport">
+          <div class="code">NRT</div>
+          <div class="city">東京 / 成田</div>
+          <div class="time">14:35 出発</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="airport">
+          <div class="code">LAX</div>
+          <div class="city">ロサンゼルス</div>
+          <div class="time">8:25 到着</div>
+        </div>
+      </div>
+      <div class="flight-detail">
+        予約番号：（ZIPAIRアプリかメールで確認）
+      </div>
+    </div>
+
+    <h3>帰りの便（未予約）</h3>
+    <div class="info-card warning">
+      帰りの便はサンフランシスコ国際空港（SFO）出発で、まだ予約していません。出発予定日は5月22日（金）です。早めに予約することをおすすめします。
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>LA → サンフランシスコ 移動について</h2>
+    <p>5月19日（火）はロサンゼルス国際空港（LAX）からサンフランシスコ国際空港（SFO）へ国内線で移動します。飛行時間は約1時間30分です。</p>
+
+    <div class="info-card tip">
+      LAXでレンタカーを返却してから搭乗、SFO到着後に新しくレンタカーを借ります（LAとSFで2契約）。<br>
+      国内線でも空港には2時間前到着が安心です。航空会社はユナイテッド航空、アラスカ航空、デルタ航空、サウスウエスト航空などから選べます。
+    </div>
+
+    <div class="info-card warning">
+      LA→SF間の航空券もまだ予約していない場合は、早めに予約してください。5月後半は混む時期のため、料金が上がる可能性があります。
+    </div>
+  </div>
+
+  </div><!-- /tab-overview -->
+
+  <div id="tab-itinerary" class="tab-content">
+
+  <div class="section">
+    <h2>日程表</h2>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-number">DAY 1</div>
+        <div class="day-title">
+          <div class="date">5月16日（土）</div>
+          <div class="location">日本出発 → ロサンゼルス到着</div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">11:30</div>
+        <div class="activity"><strong>成田空港 第1ターミナル北ウィング 集合</strong><div class="detail">ZIPAIRチェックインカウンター前。ZIPAIRはJALグループのため第1ターミナル北ウィングが標準（推測です：必ず予約確認メールかZIPAIRアプリで搭乗ターミナルを再確認してください）</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">12:00</div>
+        <div class="activity"><strong>チェックイン・荷物預け・出国審査</strong><div class="detail">国際線は出発の3時間前到着が安心です</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">14:35</div>
+        <div class="activity"><strong>ZIPAIR ZG024便で出発</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">8:25</div>
+        <div class="activity"><strong>ロサンゼルス国際空港（LAX）到着</strong><div class="detail">入国審査と荷物受け取りで1〜2時間ほどかかることがあります</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">10:30頃</div>
+        <div class="activity"><strong>レンタカー受け取り</strong><div class="detail">空港のレンタカーセンターはシャトルバスで移動します</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">12:00</div>
+        <div class="activity"><strong>ホテルへ移動・荷物を預ける</strong><div class="detail">チェックインは通常15:00以降。荷物だけ預けて観光に出られます</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">13:00</div>
+        <div class="activity"><strong>ランチ</strong><div class="detail">In-N-Out Burger でアメリカ初日を実感</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">15:00</div>
+        <div class="activity"><strong>サンタモニカ・ピアまたはベニスビーチ散策</strong><div class="detail">時差ボケ対策に外で日光を浴びるのがおすすめ</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">19:00</div>
+        <div class="activity"><strong>ホテルで早めの就寝</strong><div class="detail">翌日の野球観戦に備えて時差ボケ調整</div></div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-number">DAY 2</div>
+        <div class="day-title">
+          <div class="date">5月17日（日）</div>
+          <div class="location">アナハイム エンゼルス・スタジアム 野球観戦</div>
+        </div>
+      </div>
+
+      <div class="info-card warning">
+        試合開始時刻と対戦相手は事前にエンゼルス公式サイト（mlb.com/angels）で確認してください。日曜のホームゲームは午後1時07分開始が一般的ですが、年や試合により変動します（推測です）。
+      </div>
+
+      <div class="schedule-row">
+        <div class="time">9:00</div>
+        <div class="activity"><strong>ゆっくり起床・朝食</strong><div class="detail">前日の時差ボケ調整も兼ねて無理せず</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">10:30</div>
+        <div class="activity"><strong>ホテル出発</strong><div class="detail">LAからエンゼルス・スタジアムまで車で約45分（渋滞時は60〜90分）</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">11:30</div>
+        <div class="activity"><strong>スタジアム到着・駐車</strong><div class="detail">公式駐車場は20〜30ドル前後（推測です）。試合前は混むので早めの到着推奨</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">12:00</div>
+        <div class="activity"><strong>ゲートオープン・球場グルメ</strong><div class="detail">通常、試合開始の90分前にゲートが開く。場内のフードを満喫</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">13:07</div>
+        <div class="activity"><strong>試合開始（仮置き）</strong><div class="detail">国歌斉唱は起立して帽子を取るのがマナー</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">15:30〜16:30</div>
+        <div class="activity"><strong>試合終了（試合進行による）</strong><div class="detail">MLBの試合は3時間前後が目安</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">17:00</div>
+        <div class="activity"><strong>退場・周辺で軽食</strong><div class="detail">球場周辺は混雑するため少し時間を置くのも手</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">18:30</div>
+        <div class="activity"><strong>LAへ戻る</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">19:30</div>
+        <div class="activity"><strong>LAで夕食</strong><div class="detail">ステーキやBBQでアメリカンな締めくくりも</div></div>
+      </div>
+
+      <h3 style="margin-top:24px;">エンゼルス・スタジアム 基本情報</h3>
+      <table>
+        <tr><th>正式名称</th><td>Angel Stadium of Anaheim（通称「The Big A」）</td></tr>
+        <tr><th>住所</th><td>2000 E Gene Autry Way, Anaheim, CA 92806</td></tr>
+        <tr><th>収容人数</th><td>約45,000人</td></tr>
+        <tr><th>LAからの距離</th><td>約50キロメートル（車で45分〜1時間）</td></tr>
+        <tr><th>駐車場</th><td>公式駐車場あり。料金は試合により変動（推測です：20〜30ドル）</td></tr>
+        <tr><th>チケット</th><td>MLB公式サイト、Ticketmaster、StubHub等で購入可能</td></tr>
+      </table>
+
+      <h3 style="margin-top:20px;">球場での楽しみ方</h3>
+      <div class="restaurant-grid">
+        <div class="restaurant-card">
+          <div class="name">球場グルメ</div>
+          <div class="genre">フード</div>
+          <div class="desc">名物のホットドッグ、ガーリックフライ、ナチョス、ピザ、地元クラフトビールなど。事前に球場マップで売店をチェックすると効率よく回れる。</div>
+          <div class="area">場所：場内各所</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Big A（巨大なA字オブジェ）</div>
+          <div class="genre">記念撮影</div>
+          <div class="desc">球場のシンボル。エンゼルスが勝つと頂上のヘイロー（後光）が点灯する伝統。記念写真の定番スポット。</div>
+          <div class="area">場所：球場外</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">7回のストレッチ</div>
+          <div class="genre">恒例イベント</div>
+          <div class="desc">7回表が終わると全員で立ち上がり「Take Me Out to the Ball Game」を歌う伝統。アメリカ野球文化の象徴。</div>
+          <div class="area">場所：自席で</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">ラリーモンキー</div>
+          <div class="genre">エンゼルス名物</div>
+          <div class="desc">エンゼルスが負けている終盤に、大型ビジョンに登場する応援猿のキャラクター。観客が大盛り上がり。</div>
+          <div class="area">場所：場内ビジョン</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">公式グッズショップ</div>
+          <div class="genre">お土産</div>
+          <div class="desc">キャップ、Tシャツ、ボブルヘッドなどお土産が豊富。試合開始前に行くと混雑回避できる。</div>
+          <div class="area">場所：場内・球場周辺</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Home Run Hill（バックスクリーン背景）</div>
+          <div class="genre">球場の特色</div>
+          <div class="desc">外野バックスクリーン裏にある滝と岩山の演出。エンゼルスがホームランを打つと噴水と花火が上がる。</div>
+          <div class="area">場所：センター後方</div>
+        </div>
+      </div>
+
+      <div class="info-card tip" style="margin-top:20px;">
+        【持ち物】球場は屋根のないオープンエア。日中の試合は日差しが強いので、帽子・サングラス・日焼け止め必須。夜になると冷え込むため軽い羽織りも一枚あると安心。<br><br>
+        【手荷物制限】MLBの球場は大きなバッグ持ち込み禁止です。クリアバッグまたは小さめのバッグ（約30×15×15センチ以下）が原則です（推測です：年度により変動）。リュックは持ち込めない可能性が高いので、出発前に公式サイトで確認してください。
+      </div>
+
+      <div class="info-card warning">
+        【観戦マナー】国歌斉唱中は起立し、帽子を取って胸に手を当てる。座席で食べ物を買う「ベンダー」が回ってくる文化がある。チップは不要だが、購入したら笑顔で受け取るとよい。<br><br>
+        【選手情報】2026年シーズンの所属選手・スター選手は事前にチームサイトで確認しておくと、試合がより楽しめます。
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-number">DAY 3</div>
+        <div class="day-title">
+          <div class="date">5月18日（月）</div>
+          <div class="location">会社用事 + 古着倉庫めぐり</div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">9:00</div>
+        <div class="activity"><strong>会社の用事（半日）</strong><div class="detail">場所と内容に合わせて時間調整</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">13:00</div>
+        <div class="activity"><strong>ランチ</strong><div class="detail">会社の近くで軽めに</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">14:30</div>
+        <div class="activity"><strong>古着倉庫めぐりへ</strong><div class="detail">下の「LA古着スポット情報」を参照</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">18:30</div>
+        <div class="activity"><strong>夕食</strong><div class="detail">グランド・セントラル・マーケット または 行きたかったレストラン</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">21:00</div>
+        <div class="activity"><strong>ホテルで荷造り</strong><div class="detail">翌朝のSF移動に備える</div></div>
+      </div>
+
+      <h3 style="margin-top:24px;">LA古着スポット情報</h3>
+      <div class="restaurant-grid">
+        <div class="restaurant-card">
+          <div class="name">Wasteland</div>
+          <div class="genre">ヴィンテージ古着</div>
+          <div class="desc">メルローズ通りにある人気店。ブランドものから古着まで品揃え豊富で広い倉庫風の店内。</div>
+          <div class="area">エリア：メルローズ</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Iguana Vintage Clothing</div>
+          <div class="genre">大型ヴィンテージ</div>
+          <div class="desc">ノースハリウッドにある巨大な倉庫店舗。1920年代から80年代まで何でもそろう。（推測です：在庫量は時期で変動）</div>
+          <div class="area">エリア：ノースハリウッド</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Goodwill Outlet（ザ・ビンズ）</div>
+          <div class="genre">量り売り古着</div>
+          <div class="desc">大きな箱に入った古着を量り売り。掘り出し物探しの聖地。営業時間は要確認。</div>
+          <div class="area">エリア：複数（ロサンゼルス周辺）</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Crossroads Trading</div>
+          <div class="genre">セレクト古着</div>
+          <div class="desc">状態の良い古着が中心。価格はやや高めだが質が安定している。LA市内に複数店舗。</div>
+          <div class="area">エリア：メルローズなど</div>
+        </div>
+      </div>
+      <div class="info-card note">
+        本格的な「倉庫」スタイルを求めるなら、Goodwill Outlet（ビンズ）か Iguana Vintage が雰囲気として近いです（推測です）。事前にお店のウェブサイトかGoogleマップで現在の営業時間と場所を確認してください。
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-number">DAY 4</div>
+        <div class="day-title">
+          <div class="date">5月19日（火）</div>
+          <div class="location">LA → サンフランシスコ移動日</div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">7:30</div>
+        <div class="activity"><strong>ホテルチェックアウト</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">8:30</div>
+        <div class="activity"><strong>LAXでレンタカー返却</strong><div class="detail">レンタカー会社のシャトルでターミナルへ</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">9:00</div>
+        <div class="activity"><strong>搭乗手続き・保安検査</strong><div class="detail">国内線は出発の2時間前到着が安心</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">11:00頃</div>
+        <div class="activity"><strong>LAX出発</strong><div class="detail">飛行時間 約1時間30分。便によって時刻は変動</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">12:30頃</div>
+        <div class="activity"><strong>SFO到着・荷物受け取り・レンタカー受け取り</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">14:30</div>
+        <div class="activity"><strong>SFホテル到着・荷物預け</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">15:30</div>
+        <div class="activity"><strong>フィッシャーマンズ・ワーフ周辺観光</strong><div class="detail">クラムチャウダーをBoudin Bakeryで</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">19:00</div>
+        <div class="activity"><strong>夕食</strong><div class="detail">早めに就寝してヨセミテに備える</div></div>
+      </div>
+
+      <div class="info-card note" style="margin-top:16px;">
+        上記の時刻は仮置きです。LA→SFの便が決まったら、それに合わせて当日のスケジュールを調整してください。
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-number">DAY 5</div>
+        <div class="day-title">
+          <div class="date">5月20日（水）</div>
+          <div class="location">ヨセミテ国立公園（日帰り）</div>
+        </div>
+      </div>
+
+      <div class="info-card warning">
+        SFからヨセミテまで片道約3時間半〜4時間。日帰りだと朝早く出発し、夜遅く帰着する長丁場になります。途中の運転は山道の区間もあるため、運転手の体調管理に注意してください。
+      </div>
+
+      <div class="schedule-row">
+        <div class="time">5:30</div>
+        <div class="activity"><strong>ホテル出発</strong><div class="detail">朝食はドライブスルーかコンビニで</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">9:30頃</div>
+        <div class="activity"><strong>ヨセミテ国立公園 到着</strong><div class="detail">入園予約が必要な時期があります。事前に公式サイト確認必須</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">10:00</div>
+        <div class="activity"><strong>トンネルビュー展望台</strong><div class="detail">エル・キャピタンとハーフドームが一望できる定番ポイント</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">11:30</div>
+        <div class="activity"><strong>ヨセミテ・バレー散策</strong><div class="detail">ヨセミテ滝（5月は水量が最大級で迫力満点）</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">13:00</div>
+        <div class="activity"><strong>ランチ（ヨセミテ・バレー・ロッジ周辺）</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">14:30</div>
+        <div class="activity"><strong>ブライダルベール滝・グレイシャーポイント方面</strong><div class="detail">時間に応じて選択。グレイシャーポイントは閉鎖期間に注意</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">16:30</div>
+        <div class="activity"><strong>公園出発</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">20:30頃</div>
+        <div class="activity"><strong>SF帰着</strong></div>
+      </div>
+
+      <div class="info-card tip">
+        ヨセミテは2024年以降、混雑時期は事前予約制になっています。5月後半が予約必須かは年によって変わるため、必ず公式サイト（nps.gov/yose）で出発前に確認してください（推測です：年度ごとにルールが変わるため）。<br>
+        園内は携帯の電波がほぼ入りません。地図と行き先は事前にダウンロードしておくこと。
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-number">DAY 6</div>
+        <div class="day-title">
+          <div class="date">5月21日（木）</div>
+          <div class="location">シリコンバレー＋海辺ドライブ</div>
+        </div>
+      </div>
+
+      <div class="info-card note">
+        サンフランシスコから南へ向かうコース。シリコンバレーの有名IT企業を見学し、帰りに海岸沿いを走って戻る1日コースです。総走行距離は約180キロメートル、走行時間は合計4時間ほど（推測です：交通量で変動）。
+      </div>
+
+      <div class="schedule-row">
+        <div class="time">7:30</div>
+        <div class="activity"><strong>朝食・ホテル出発</strong><div class="detail">早朝出発で渋滞を避ける</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">8:30</div>
+        <div class="activity"><strong>スタンフォード大学キャンパス散策</strong><div class="detail">パロアルト。アメリカ屈指の名門大学。フーバータワーやメインクワッドが見どころ。駐車場はビジター用エリアへ</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">10:30</div>
+        <div class="activity"><strong>Apple Park Visitor Center</strong><div class="detail">クパチーノ。Appleの本社「宇宙船」を見学できる施設。建物模型、限定グッズ販売、屋上ガーデン。Appleファン必訪</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">12:00</div>
+        <div class="activity"><strong>ランチ（クパチーノ・マウンテンビュー周辺）</strong><div class="detail">アジア系レストランも豊富。In-N-Out Burgerがある場所も</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">13:30</div>
+        <div class="activity"><strong>Googleplex（Google本社）周辺</strong><div class="detail">マウンテンビュー。Androidの像が並ぶ「Android Lawn Statues」エリアは記念撮影スポット。中までは入れないが外観・敷地散策可（推測です：年により公開状況変動）</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">14:30</div>
+        <div class="activity"><strong>Computer History Museum（任意）</strong><div class="detail">マウンテンビュー。コンピューターの歴史展示。ITに興味があれば。1〜1時間半</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">16:00</div>
+        <div class="activity"><strong>海辺へ移動（ハーフムーンベイ方面）</strong><div class="detail">山越えのルート92号線で約45分</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">17:00</div>
+        <div class="activity"><strong>ハーフムーンベイ州立ビーチ</strong><div class="detail">広い砂浜と崖の景色。サンフランシスコ近郊で最も美しい海岸の一つ</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">18:00</div>
+        <div class="activity"><strong>カリフォルニア1号線で北上</strong><div class="detail">海岸沿いの絶景ドライブ。途中にDevil's Slide展望台などあり</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">19:30</div>
+        <div class="activity"><strong>サンフランシスコ帰着・夕食</strong><div class="detail">最後の夜なので奮発もおすすめ。フィッシャーマンズワーフ周辺でシーフード</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">21:30</div>
+        <div class="activity"><strong>荷造り・帰国準備</strong></div>
+      </div>
+
+      <h3 style="margin-top:24px;">シリコンバレー 主要スポット</h3>
+      <div class="restaurant-grid">
+        <div class="restaurant-card">
+          <div class="name">Apple Park Visitor Center</div>
+          <div class="genre">クパチーノ</div>
+          <div class="desc">本社隣接の見学施設。AR模型でキャンパス全体を見られる。Apple限定グッズ販売、カフェあり。</div>
+          <div class="area">所要：30〜60分　駐車場：あり（無料）</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Googleplex</div>
+          <div class="genre">マウンテンビュー</div>
+          <div class="desc">Google本社周辺。Androidロボットの彫像群が記念撮影の定番。Visitor Center店舗も（推測です：開放状況変動）。</div>
+          <div class="area">所要：30〜45分　駐車場：周辺に有</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Stanford University</div>
+          <div class="genre">パロアルト</div>
+          <div class="desc">アメリカ屈指の名門大学。広大で美しいキャンパス。フーバータワー、メモリアルチャーチが見どころ。</div>
+          <div class="area">所要：1〜2時間　駐車場：ビジター用あり</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Computer History Museum</div>
+          <div class="genre">マウンテンビュー</div>
+          <div class="desc">世界最大級のコンピューター歴史博物館。本物のApple I、初期メインフレームなど展示。</div>
+          <div class="area">所要：1〜2時間　入場料：あり</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Meta（旧Facebook）本社サイン</div>
+          <div class="genre">メンローパーク</div>
+          <div class="desc">「いいね」の親指マークがある記念撮影スポット（推測です：訪問可否は年で変動）。立ち寄り写真撮影のみ。</div>
+          <div class="area">所要：15分</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Tesla 本社・Showroom</div>
+          <div class="genre">パロアルト</div>
+          <div class="desc">Tesla好きなら立ち寄り。最新車種を見学できる。</div>
+          <div class="area">所要：30分</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">海辺のおすすめ</h3>
+      <div class="restaurant-grid">
+        <div class="restaurant-card">
+          <div class="name">ハーフムーンベイ州立ビーチ</div>
+          <div class="genre">州立公園</div>
+          <div class="desc">広い砂浜と崖の景色が美しい。サーファーやウォーキングする地元客で賑わう。駐車場あり（料金10ドル前後・推測です）。</div>
+          <div class="area">SFから車で約45分</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Pillar Point Harbor</div>
+          <div class="genre">港町</div>
+          <div class="desc">ハーフムーンベイの北の港町。シーフードレストラン、絶景の岬。</div>
+          <div class="area">ハーフムーンベイすぐ北</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">Devil's Slide Trail</div>
+          <div class="genre">展望台</div>
+          <div class="desc">海岸の崖沿いの旧道を遊歩道化した展望スポット。太平洋の絶景。</div>
+          <div class="area">SFとハーフムーンベイの中間</div>
+        </div>
+        <div class="restaurant-card">
+          <div class="name">パシフィカ・ピア</div>
+          <div class="genre">ビーチ町</div>
+          <div class="desc">SFから一番近い海岸町。短時間でも立ち寄れる。</div>
+          <div class="area">SFから約30分</div>
+        </div>
+      </div>
+
+      <div class="info-card tip" style="margin-top:20px;">
+        【駐車・運転】Apple Park、Googleplex周辺は無料駐車スペースが豊富。シリコンバレーは渋滞が発生しやすいので、平日でもラッシュ時（朝7〜9時、夕方4〜7時）を避けて移動するのがコツ。<br><br>
+        【海辺のドライブ】カリフォルニア1号線（PCH）の海岸ドライブは絶景ですが、日没直前は逆光で見にくいことがあります。日没時刻を確認しながら進めてください。
+      </div>
+
+      <div class="info-card warning">
+        Apple ParkとGoogleplexは平日のみ駐車可・見学可の場合があります（推測です：施設方針が変動）。木曜日は概ね問題ない見込みですが、念のため出発前に各社の公式サイトで来訪可否を確認してください。
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-number">DAY 7</div>
+        <div class="day-title">
+          <div class="date">5月22日（金）</div>
+          <div class="location">サンフランシスコ → 帰国</div>
+        </div>
+      </div>
+
+      <div class="info-card warning">
+        帰りの便は未予約のため、時刻は仮置きです。便が決まり次第、修正してください。
+      </div>
+
+      <div class="schedule-row">
+        <div class="time">出発の4時間前</div>
+        <div class="activity"><strong>ホテルチェックアウト</strong></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">出発の3時間前</div>
+        <div class="activity"><strong>SFO到着・レンタカー返却</strong><div class="detail">国際線は早めの空港到着が安心</div></div>
+      </div>
+      <div class="schedule-row">
+        <div class="time">出発の2.5時間前</div>
+        <div class="activity"><strong>搭乗手続き・出国審査・免税店</strong></div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /tab-itinerary -->
+
+  <div id="tab-restaurants" class="tab-content">
+
+  <div class="section">
+    <h2>おすすめレストラン</h2>
+
+    <h3>ロサンゼルスのおすすめ</h3>
+    <div class="restaurant-grid">
+      <div class="restaurant-card">
+        <div class="name">In-N-Out Burger</div>
+        <div class="genre">ハンバーガー / 手頃</div>
+        <div class="desc">西海岸の伝説的バーガー店。「Animal Style」など隠しメニューが有名。</div>
+        <div class="area">エリア：LA市内に多数</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Grand Central Market</div>
+        <div class="genre">フードホール / 手頃</div>
+        <div class="desc">ダウンタウンの歴史ある屋内市場。多国籍料理が一カ所で楽しめる。</div>
+        <div class="area">エリア：ダウンタウン</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Bestia</div>
+        <div class="genre">イタリアン / 贅沢</div>
+        <div class="desc">アーツ・ディストリクトの人気店。ピザとパスタが絶品。要予約。</div>
+        <div class="area">エリア：アーツ・ディストリクト</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Republique</div>
+        <div class="genre">フレンチ・カフェ / 中〜贅沢</div>
+        <div class="desc">朝はパン、夜はビストロ料理。歴史ある建物の雰囲気も魅力。</div>
+        <div class="area">エリア：ミッドシティ</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Pink's Hot Dogs</div>
+        <div class="genre">ホットドッグ / 手頃</div>
+        <div class="desc">1939年創業のハリウッドの名物店。行列必至。</div>
+        <div class="area">エリア：ハリウッド</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Sushi Gen</div>
+        <div class="genre">寿司 / 中〜贅沢</div>
+        <div class="desc">リトルトーキョーの本格江戸前寿司。ランチのちらしが人気。</div>
+        <div class="area">エリア：リトルトーキョー</div>
+      </div>
+    </div>
+
+    <h3>サンフランシスコのおすすめ</h3>
+    <div class="restaurant-grid">
+      <div class="restaurant-card">
+        <div class="name">Boudin Bakery</div>
+        <div class="genre">ベーカリー・スープ / 手頃</div>
+        <div class="desc">サワードウブレッドのお椀に入ったクラムチャウダーがSF名物。フィッシャーマンズワーフ本店がおすすめ。</div>
+        <div class="area">エリア：フィッシャーマンズワーフ</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Tartine Bakery</div>
+        <div class="genre">ベーカリー・カフェ / 中</div>
+        <div class="desc">ミッション地区の有名パン屋。クロワッサンとカントリーブレッドが看板商品。</div>
+        <div class="area">エリア：ミッション</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Hog Island Oyster Co.</div>
+        <div class="genre">シーフード / 中〜贅沢</div>
+        <div class="desc">フェリービルディング内の名物カキ料理店。地元産の新鮮な生牡蠣。</div>
+        <div class="area">エリア：フェリービルディング</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Tadich Grill</div>
+        <div class="genre">シーフード / 中〜贅沢</div>
+        <div class="desc">1849年創業、カリフォルニアで最古のレストラン。チョッピーノが名物。</div>
+        <div class="area">エリア：ファイナンシャル・ディストリクト</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">House of Prime Rib</div>
+        <div class="genre">ステーキ / 贅沢</div>
+        <div class="desc">SFを代表する老舗プライムリブ専門店。要予約（数週間前から埋まる）。</div>
+        <div class="area">エリア：ノブヒル</div>
+      </div>
+      <div class="restaurant-card">
+        <div class="name">Ferry Building Marketplace</div>
+        <div class="genre">フードホール / 手頃〜中</div>
+        <div class="desc">フェリー乗り場併設の大型市場。地元食材のテイクアウトや屋台が集合。</div>
+        <div class="area">エリア：エンバカデロ</div>
+      </div>
+    </div>
+
+    <div class="info-card note">
+      アメリカは予約文化です。人気店は数週間前から埋まることが多いので、行きたい店は OpenTable や Resy アプリで早めに予約してください。
+    </div>
+  </div>
+
+  </div><!-- /tab-restaurants -->
+
+  <div id="tab-packing" class="tab-content">
+
+  <div class="section">
+    <h2>持ち物リスト</h2>
+    <p>出発前にチェックを入れていきましょう（このページはブラウザで開けば実際にチェックできます）。</p>
+
+    <div class="check-list">
+      <div class="category">必須書類・お金</div>
+      <label class="check-item"><input type="checkbox"> パスポート（有効期限6ヶ月以上残っていること）</label>
+      <label class="check-item"><input type="checkbox"> ESTA承認のスクリーンショットまたは印刷</label>
+      <label class="check-item"><input type="checkbox"> 航空券（行き：ZG024便の予約番号 IMYWRT）</label>
+      <label class="check-item"><input type="checkbox"> 帰国便の予約確認書（予約後）</label>
+      <label class="check-item"><input type="checkbox"> ホテル予約確認書（LA・SFそれぞれ）</label>
+      <label class="check-item"><input type="checkbox"> レンタカー予約確認書</label>
+      <label class="check-item"><input type="checkbox"> 海外旅行保険の保険証券</label>
+      <label class="check-item"><input type="checkbox"> 国際運転免許証または日本の免許証＋翻訳書類</label>
+      <label class="check-item"><input type="checkbox"> クレジットカード（2枚以上）</label>
+      <label class="check-item"><input type="checkbox"> 現金（米ドル200〜500ドル目安、チップ用に小額紙幣）</label>
+
+      <div class="category">電子機器</div>
+      <label class="check-item"><input type="checkbox"> スマートフォン</label>
+      <label class="check-item"><input type="checkbox"> モバイルバッテリー</label>
+      <label class="check-item"><input type="checkbox"> 充電器・各種ケーブル</label>
+      <label class="check-item"><input type="checkbox"> 変換プラグ（アメリカはAタイプ。日本と同じ形ですが念のため予備）</label>
+      <label class="check-item"><input type="checkbox"> カメラ（必要に応じて）</label>
+      <label class="check-item"><input type="checkbox"> SIMカードまたは海外用Wi-Fi</label>
+
+      <div class="category">衣類</div>
+      <label class="check-item"><input type="checkbox"> Tシャツ・薄手シャツ（5月のLAは日中25℃前後、SFは15℃前後）</label>
+      <label class="check-item"><input type="checkbox"> 長袖・パーカー（SFとヨセミテで必須）</label>
+      <label class="check-item"><input type="checkbox"> 軽めのジャケット（SFは霧の日の体感が寒い）</label>
+      <label class="check-item"><input type="checkbox"> パンツ・ジーンズ</label>
+      <label class="check-item"><input type="checkbox"> 下着・靴下（日数分＋予備）</label>
+      <label class="check-item"><input type="checkbox"> 歩きやすい靴（球場・ヨセミテで必須）</label>
+      <label class="check-item"><input type="checkbox"> サンダル・スニーカー予備</label>
+      <label class="check-item"><input type="checkbox"> 帽子・サングラス（紫外線対策）</label>
+      <label class="check-item"><input type="checkbox"> 折りたたみ傘または雨具（5月のSFは霧と小雨に注意）</label>
+
+      <div class="category">日用品・薬</div>
+      <label class="check-item"><input type="checkbox"> 歯ブラシ・歯磨き粉（米国のホテルには無いことが多い）</label>
+      <label class="check-item"><input type="checkbox"> シャンプー・ボディソープ（こだわる場合は持参）</label>
+      <label class="check-item"><input type="checkbox"> 洗顔・スキンケア用品</label>
+      <label class="check-item"><input type="checkbox"> 日焼け止め（強めのSPF）</label>
+      <label class="check-item"><input type="checkbox"> 普段飲む薬・常備薬（頭痛薬・整腸剤など）</label>
+      <label class="check-item"><input type="checkbox"> マスク（機内・観光地用）</label>
+      <label class="check-item"><input type="checkbox"> 絆創膏（歩きまわるとマメができやすい）</label>
+
+      <div class="category">あると便利なもの</div>
+      <label class="check-item"><input type="checkbox"> エコバッグ（米国スーパーでレジ袋有料）</label>
+      <label class="check-item"><input type="checkbox"> 機内用ネックピロー・アイマスク</label>
+      <label class="check-item"><input type="checkbox"> ジップロック（古着の仕分け・濡れ物用）</label>
+      <label class="check-item"><input type="checkbox"> 折りたたみのサブバッグ（古着で荷物が増える可能性）</label>
+      <label class="check-item"><input type="checkbox"> 携帯用ウェットティッシュ・除菌シート</label>
+      <label class="check-item"><input type="checkbox"> ヨセミテ用：水筒・軽食・防寒着・サングラス</label>
+    </div>
+  </div>
+
+  </div><!-- /tab-packing -->
+
+  <div id="tab-emergency" class="tab-content">
+
+  <div class="section">
+    <h2>緊急連絡先・注意事項</h2>
+
+    <h3>緊急時の連絡先</h3>
+    <div class="emergency-grid">
+      <div class="emergency-card">
+        <div class="label">アメリカ国内 緊急通報</div>
+        <div class="value">911</div>
+        <div class="note">警察・消防・救急</div>
+      </div>
+      <div class="emergency-card">
+        <div class="label">在ロサンゼルス日本国総領事館</div>
+        <div class="value">+1-213-617-6700</div>
+        <div class="note">パスポート紛失や事件・事故の相談</div>
+      </div>
+      <div class="emergency-card">
+        <div class="label">在サンフランシスコ日本国総領事館</div>
+        <div class="value">+1-415-780-6000</div>
+        <div class="note">SF滞在中の緊急連絡先</div>
+      </div>
+      <div class="emergency-card">
+        <div class="label">クレジットカード会社</div>
+        <div class="value">出発前に控える</div>
+        <div class="note">紛失・盗難時の即時連絡用</div>
+      </div>
+      <div class="emergency-card">
+        <div class="label">海外旅行保険会社</div>
+        <div class="value">保険証券記載の番号</div>
+        <div class="note">病院利用時に事前連絡が必要な場合あり</div>
+      </div>
+      <div class="emergency-card">
+        <div class="label">ZIPAIR カスタマーセンター</div>
+        <div class="value">公式サイト参照</div>
+        <div class="note">フライト変更・遅延時</div>
+      </div>
+    </div>
+
+    <h3>治安・お金の注意</h3>
+    <div class="info-card warning">
+      ロサンゼルスのスキッドロウ周辺、サンフランシスコのテンダーロイン地区は昼でも近づかないこと。<br>
+      車上荒らしが多発しているエリアがあります。レンタカーには貴重品・荷物を絶対に置きっぱなしにしないでください（見える場所はもちろん、トランクも危険）。<br>
+      スマホをいじりながらの歩行は強盗の対象になりやすいので、地図確認は店内などで行ってください。
+    </div>
+
+    <div class="info-card">
+      チップは外食で15〜20％が目安。タクシー・配車サービスは10〜15％、ホテルのベルボーイは荷物1個につき1〜2ドル、ハウスキーピングは1日2〜3ドルを枕元に置きます。
+    </div>
+
+    <div class="info-card note">
+      表示価格は税抜きの場合が多く、レジでセールスタックスが加算されます（カリフォルニア州は約8〜10％）。<br>
+      レストランの請求書には「Service Charge」が既に含まれている場合があるので、二重にチップを払わないよう確認してください。
+    </div>
+
+    <h3>運転の注意</h3>
+    <div class="info-card warning">
+      右側通行・左ハンドルです。最初の数時間は特に慎重に。<br>
+      赤信号でも、停止線で完全停車後に右折可能（標識で禁止されていない場合のみ）。<br>
+      高速道路の制限速度は地域差が大きく、見逃すと高額な罰金になります。標識を必ず確認。<br>
+      飲酒運転は厳禁。アルコール検出基準が日本より厳しい州もあります。
+    </div>
+
+    <h3>健康・体調管理</h3>
+    <div class="info-card">
+      時差は日本より16時間遅れ（5月）。到着初日は無理せず早めに就寝を。<br>
+      LAは日差しが強く乾燥しています。水筒を持ち歩き、こまめな水分補給を。<br>
+      SFとヨセミテは標高差・気温差があるため、重ね着できる服装を準備してください。
+    </div>
+
+    <h3>連絡用メモ欄</h3>
+    <table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>LAホテル</td><td>Loews Santa Monica Beach Hotel<br>1700 Ocean Ave, Santa Monica, CA 90401<br>電話：+1-310-458-6700（推測です：要確認）</td></tr>
+      <tr><td>SFホテル</td><td>The Argonaut Hotel<br>495 Jefferson St, San Francisco, CA 94109<br>電話：+1-415-563-0800（推測です：要確認）</td></tr>
+      <tr><td>レンタカー（LA）</td><td>さくらレンタカー（候補）／予約番号：（記入欄）</td></tr>
+      <tr><td>レンタカー（SF）</td><td>さくらレンタカー（候補）／予約番号：（記入欄）</td></tr>
+      <tr><td>同行者の連絡先</td><td>　（記入欄）</td></tr>
+      <tr><td>日本側の緊急連絡先</td><td>　（記入欄）</td></tr>
+    </table>
+  </div>
+
+  </div><!-- /tab-emergency -->
+
+  <div id="tab-checklist" class="tab-content">
+
+  <div class="section">
+    <h2>出発前のチェックリスト</h2>
+    <div class="check-list">
+      <label class="check-item"><input type="checkbox"> ESTAを申請した（出発72時間前まで）</label>
+      <label class="check-item"><input type="checkbox"> 帰りの航空券を予約した</label>
+      <label class="check-item"><input type="checkbox"> LA・SFのホテルを予約した</label>
+      <label class="check-item"><input type="checkbox"> レンタカーを予約した（LA・SFそれぞれ別契約）</label>
+      <label class="check-item"><input type="checkbox"> LA→SFの航空券を予約した（5月19日）</label>
+      <label class="check-item"><input type="checkbox"> 海外旅行保険に加入した</label>
+      <label class="check-item"><input type="checkbox"> 携帯のローミング設定または現地SIM・Wi-Fi手配済み</label>
+      <label class="check-item"><input type="checkbox"> 行きたいレストランを予約した</label>
+      <label class="check-item"><input type="checkbox" checked> エンゼルス戦のチケットを購入した（5月17日）</label>
+      <label class="check-item"><input type="checkbox"> ヨセミテの入園予約状況を確認した</label>
+      <label class="check-item"><input type="checkbox"> クレジットカード会社に海外利用予定を連絡した</label>
+      <label class="check-item"><input type="checkbox"> 国際運転免許証を取得した</label>
+      <label class="check-item"><input type="checkbox"> このしおりを印刷した、またはスマホに保存した</label>
+    </div>
+  </div>
+
+  </div><!-- /tab-checklist -->
+
+  <div class="footer">
+    素敵な旅になりますように<br>
+    <span style="font-size:0.9em; opacity:0.9;">Have a wonderful trip!</span>
+  </div>
+
+</div>
+
+<script>
+function switchTab(event, tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const originalText = btn.textContent;
+    btn.textContent = 'コピー完了';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.classList.remove('copied');
+    }, 1500);
+  });
+}
+</script>
+
+</body>
+</html>
+                                                   
